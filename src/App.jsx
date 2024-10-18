@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Box, Button, Card, Flex, Text } from '@radix-ui/themes';
 
 function App() {
   const [timeLeft, setTimeLeft] = useState(null);
@@ -50,28 +51,38 @@ function App() {
   }, [timeLeft]);
 
   return (
-    <div>
-      <div>
+    <Flex direction={'column'} align={'center'}>
+      <Box>
         <h1>Counter</h1>
-      </div>
-      <div>
-        <button onClick={() => {
-          cleanNumbers()
-          setTimeLeft(10)
-        }}>
+      </Box>
+      <Box>
+        <Button
+          variant='classic'
+          onClick={() => {
+            cleanNumbers()
+            setTimeLeft(10)
+          }}>
           Start
-        </button>
+        </Button>
 
-      </div>
+      </Box>
 
-      <div>
+      <Box>
         {timeLeft}
-      </div>
-      <div>
-        {currentNumber ? `Current Number: ${currentNumber}` : ""}
-      </div>
+      </Box>
+      <Box>
+        <Card>
+          <Flex direction={'row'} align={'center'} justify={'center'}>
+            <Box height={"400px"} width="300px" p={"30%"}>
+              <Text size={'9'} weight={'bold'} >
+                {currentNumber ? currentNumber : ""}
+              </Text>
+            </Box>
+          </Flex>
+        </Card>
+      </Box>
 
-      <div>
+      <Box>
         <form onSubmit={(e) => {
           e.preventDefault();
           handleAnswer();
@@ -84,8 +95,8 @@ function App() {
             disabled={timeLeft > 0}
           />
         </form>
-      </div>
-    </div>
+      </Box>
+    </Flex >
   )
 }
 
