@@ -1,0 +1,11 @@
+.number-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 300px;
+}
+
+.number {
+  font-size: 180px;
+}
